@@ -1,17 +1,19 @@
 let firstNumber = 0;
 let secondNumber = 0;
-//create function called operate to call button and use one of the functions
-//use eventListeners on the buttons for operate, to call one of them
-//when you click button, populate display
+const container = document.querySelector(".container");
 
-function operate() {
-    const display = document.querySelector("#display");
+let userInput = "";
+const input = document.querySelector("#input");
+
+document.querySelectorAll("button").forEach((button) => {
+    button.addEventListener("click", btnAction);
+});
+
+function btnAction(event) {
+    const btn = event.target;
+    console.info("button:", btn.textContent, btn);
 }
 
-//use mousedown instead of click?
-//create functions to populate the "display"/input field
-
-//functions for various mathematical operations.
 function add(numOne, numTwo) {
     return numOne + numTwo;
 }
