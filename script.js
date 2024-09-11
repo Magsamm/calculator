@@ -8,12 +8,14 @@ const container = document.querySelector(".container");
 
 //attach eventListeners to buttons. query input field and add button value to input
 // add second number to second variable
+
+//key event for = - + etc? check docs
+
 const input = document.querySelector("input");
-const queryButtons = document.querySelectorAll(".number");
-for (const element of queryButtons) {
+for (const element of document.querySelectorAll(".number")) {
     element.addEventListener("mousedown", () => {
-        userInput = element.textContent;
-        input.value += userInput;
+        input.value += element.textContent;
+        userInput = input.value;
     });
 }
 
