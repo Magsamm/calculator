@@ -2,20 +2,17 @@ let firstNumber = 0;
 let secondNumber = 0;
 let userInput = "";
 const container = document.querySelector(".container");
-const input = document.querySelector("input");
 
 //query buttons, and the input field and add eventListeners
 //add the value of the button pressed to the input, so it acts as a display
 
-//convert strings to Number()
-//need to add input value to the first variable. and when the user presses =
+//attach eventListeners to buttons. query input field and add button value to input
 // add second number to second variable
-
-const queryButtons = document.querySelectorAll("button");
+const input = document.querySelector("input");
+const queryButtons = document.querySelectorAll(".number");
 for (const element of queryButtons) {
     element.addEventListener("mousedown", () => {
-        input.value = "";
-        userInput += element.textContent;
+        userInput = element.textContent;
         input.value += userInput;
     });
 }
@@ -25,6 +22,7 @@ const clearDisplay = document.querySelector("#clear");
 clearDisplay.addEventListener("mousedown", () => {
     input.value = "";
 });
+input.value = "";
 
 function add(numOne, numTwo) {
     return numOne + numTwo;
