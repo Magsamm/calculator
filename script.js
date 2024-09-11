@@ -24,7 +24,6 @@ const clearDisplay = document.querySelector("#clear");
 clearDisplay.addEventListener("mousedown", () => {
     input.value = "";
 });
-input.value = "";
 
 function add(numOne, numTwo) {
     return numOne + numTwo;
