@@ -13,21 +13,16 @@ const input = document.querySelector("input");
 
 //when pressing clear, set input to "";
 
-document.querySelectorAll("button").forEach((button) => {
-    button.addEventListener("mousedown", btnAction);
-});
-function btnAction(event) {
-    const btn = event.target;
-    input.value = "";
-    userInput += btn.textContent;
-    input.value += userInput;
+const queryButtons = document.querySelectorAll("button");
+for (const element of queryButtons) {
+    element.addEventListener("mousedown", (e) => {
+        input.value = "";
+        userInput += element.textContent;
+        input.value += userInput;
+    });
 }
 
-//clear button
-const btn = document.querySelector("#clear");
-btn.addEventListener("click", () => {
-    input.value = "";
-});
+//clear display button
 
 function add(numOne, numTwo) {
     return numOne + numTwo;
