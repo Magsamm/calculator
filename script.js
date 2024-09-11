@@ -11,11 +11,9 @@ const input = document.querySelector("input");
 //need to add input value to the first variable. and when the user presses =
 // add second number to second variable
 
-//when pressing clear, set input to "";
-
 const queryButtons = document.querySelectorAll("button");
 for (const element of queryButtons) {
-    element.addEventListener("mousedown", (e) => {
+    element.addEventListener("mousedown", () => {
         input.value = "";
         userInput += element.textContent;
         input.value += userInput;
@@ -23,6 +21,10 @@ for (const element of queryButtons) {
 }
 
 //clear display button
+const clearDisplay = document.querySelector("#clear");
+clearDisplay.addEventListener("mousedown", () => {
+    input.value = "";
+});
 
 function add(numOne, numTwo) {
     return numOne + numTwo;
