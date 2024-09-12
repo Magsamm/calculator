@@ -10,6 +10,12 @@ const container = document.querySelector(".container");
 // add second number to second variable
 
 //key event for = - + etc? check docs
+// when equals is pressed. store first number in firstNumber, call clear display, make ready for //secondNumber
+
+//once equals has been clicked, remove eventListeners as per eloquentjavascript?
+//https://eloquentjavascript.net/15_event.html#c-nMrNUG0bzK
+
+//clear display button
 
 const input = document.querySelector("input");
 for (const element of document.querySelectorAll(".number")) {
@@ -19,11 +25,17 @@ for (const element of document.querySelectorAll(".number")) {
     });
 }
 
-//clear display button
 const clearDisplay = document.querySelector("#clear");
 clearDisplay.addEventListener("mousedown", () => {
     input.value = "";
 });
+
+//when user presses +-*/, call add/subtract/divide/multiply
+// store the first number, prepare for the 2nd number
+//display results
+// make the function call the appropriate function on the numbers
+//attach event listeners to this one? one for each button, that calls the appropriate function?
+function operate(numOne, numTwo) {}
 
 function add(numOne, numTwo) {
     return numOne + numTwo;
