@@ -1,9 +1,11 @@
 let userInput = "";
 let firstNumber = "";
 let secondNumber = "";
+const array = [];
+
 //empty arr to store the two numbers
 //try adding numbers to the arr instead of two variables
-let arr = [];
+
 //set arr max length to 2
 const container = document.querySelector(".container");
 //populate display
@@ -14,31 +16,25 @@ for (const element of document.querySelectorAll(".number")) {
     });
 }
 
-//FUCKING FINALLY
-//just to wait till user pressed an operator :sob:
-//now need to wipe input value
-//wait for second number
-//add to array?
-//call appropriate functions
-//display results
 //add [0] to firstNumber and [1] to second
-
-const operators = document.querySelector(".operator");
-for (const element of document.querySelectorAll("#plus")) {
+//add the result to a results var at the end of each function that gets called when the user presses = ??
+//find out how to use splice to only evaluate 2 numbers at a time
+//push number, when two values in array, call function?
+for (const element of document.querySelectorAll(".operator")) {
     element.addEventListener("mousedown", () => {
-        arr.push(input.value);
-        //splice items if arr contains more than 2 items
-        arr.splice(2);
+        array.push(input.value);
+        console.log(array);
         input.value = "";
-        console.log(arr);
     });
+
+    //if operator == "+" call function?
 }
 
 //clear display button
 document.querySelector("#clear").addEventListener("mousedown", () => {
     input.value = "";
+    array.lengths = 0;
     //reset array to zero
-    arr.length = 0;
 });
 
 //if equals button pressed, call appropriate function on number with operate
