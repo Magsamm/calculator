@@ -4,7 +4,7 @@ let secondNumber = "";
 //empty arr to store the two numbers
 //try adding numbers to the arr instead of two variables
 let arr = [];
-
+//set arr max length to 2
 const container = document.querySelector(".container");
 //populate display
 const input = document.querySelector("input");
@@ -27,6 +27,8 @@ const operators = document.querySelector(".operator");
 for (const element of document.querySelectorAll("#plus")) {
     element.addEventListener("mousedown", () => {
         arr.push(input.value);
+        //splice items if arr contains more than 2 items
+        arr.splice(2);
         input.value = "";
         console.log(arr);
     });
