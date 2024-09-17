@@ -10,6 +10,7 @@ const array = [];
 const container = document.querySelector(".container");
 //populate display
 const input = document.querySelector("input");
+
 for (const element of document.querySelectorAll(".number")) {
     element.addEventListener("mousedown", () => {
         input.value += element.textContent;
@@ -20,10 +21,9 @@ for (const element of document.querySelectorAll(".number")) {
 //add the result to a results var at the end of each function that gets called when the user presses = ??
 //find out how to use splice to only evaluate 2 numbers at a time
 //push number, when two values in array, call function?
-for (const element of document.querySelectorAll(".operator")) {
+for (let element of document.querySelectorAll(".operator")) {
     element.addEventListener("mousedown", () => {
         array.push(input.value);
-        console.log(array);
         input.value = "";
     });
 
