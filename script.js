@@ -37,26 +37,6 @@ for (let element of document.querySelectorAll("#equals", "#plus")) {
         input.value = result;
     });
 }
-
-for (let element of document.querySelectorAll("#equals", "#minus")) {
-    element.addEventListener("mousedown", () => {
-        result = subtract();
-        input.value = result;
-    });
-}
-
-for (let element of document.querySelectorAll("#equals", "#divide")) {
-    element.addEventListener("mousedown", () => {
-        result = divide();
-        input.value = result;
-    });
-}
-for (let element of document.querySelectorAll("#equals", "#multiply")) {
-    element.addEventListener("mousedown", () => {
-        result = multiply();
-        input.value = result;
-    });
-}
 //call function with numOne,NumTwo as args
 //try calling function with values from array as args to see if it works
 function operate(numOne, numTwo) {
