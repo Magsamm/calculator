@@ -2,7 +2,7 @@ let userInput = "";
 let firstNumber = "";
 let secondNumber = "";
 let result = 0;
-let array = [];
+const array = [];
 let arrayOfNumbers = [];
 
 //empty arr to store the two numbers
@@ -39,7 +39,7 @@ function operate(numOne, numTwo) {
 document.querySelector("#clear").addEventListener("mousedown", () => {
     //reset array and empty input.value
     input.value = "";
-    array = [];
+    array.length = 0;
 });
 
 //if equals button pressed, call appropriate function on number with operate
