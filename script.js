@@ -22,6 +22,7 @@ for (const element of document.querySelectorAll(".number")) {
 
 for (let element of document.querySelectorAll(".operator")) {
     element.addEventListener("mousedown", () => {
+        //use Number to convert string to Number
         array.push(Number(input.value));
         input.value = "";
     });
@@ -33,6 +34,13 @@ for (let element of document.querySelectorAll(".operator")) {
 for (let element of document.querySelectorAll("#equals", "#plus")) {
     element.addEventListener("mousedown", () => {
         result = add();
+        input.value = result;
+    });
+}
+
+for (let element of document.querySelectorAll("#equals", "#minus")) {
+    element.addEventListener("mousedown", () => {
+        result = subtract();
         input.value = result;
     });
 }
@@ -55,22 +63,14 @@ function add() {
 }
 
 function subtract() {
-    let numOne = array[2];
-    let numTwo = array[2];
-    return numOne - numTwo;
+    return array[0] - array[1];
 }
 
 function multiply() {
-    let numOne = array[0];
-    let numTwo = array[2];
-    return numOne * numTwo;
+    return array[0] * array[1];
 }
 
 //needs to throw error on 0 division
 function divide() {
-    let numOne = array[0];
-    let numTwo = array[1];
-
-    //REMOVE if working properly
-    return numOne / numTwo;
+    return array[0] / array[1];
 }
