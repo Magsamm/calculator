@@ -45,7 +45,7 @@ for (let element of document.querySelectorAll("#equals", "#minus")) {
     });
 }
 
-for (let element of document.querySelectorAll("#equals", "divide")) {
+for (let element of document.querySelectorAll("#equals", "#divide")) {
     element.addEventListener("mousedown", () => {
         result = divide();
         input.value = result;
@@ -57,8 +57,8 @@ for (let element of document.querySelectorAll("#equals", "#multiply")) {
         input.value = result;
     });
 }
-
-//refactor to use operate? instead
+//call function with numOne,NumTwo as args
+//try calling function with values from array as args to see if it works
 function operate(numOne, numTwo) {
     //take two numbers and call one of the functions on them
 }
