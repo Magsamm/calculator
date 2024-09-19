@@ -35,6 +35,7 @@ buttons.forEach((button) => {
     });
 });
 
+//maybe refactor to use switch block?
 function operate() {
     if (userInput === "plus") {
         input.value = add();
@@ -42,6 +43,8 @@ function operate() {
         input.value = subtract();
     } else if (userInput === "multiply") {
         input.value = multiply();
+    } else if ((input.value = Infinity)) {
+        input.value = "Error! 0 division";
     } else {
         input.value = divide();
     }
@@ -51,14 +54,8 @@ function operate() {
 for (let element of document.querySelectorAll("#equals")) {
     element.addEventListener("mousedown", () => {
         operate();
-        console.log(userInput);
     });
 }
-//call function with numOne,NumTwo as args
-//try calling function with values from array as args to see if it works
-// if ((userInput = "plus")) {
-//     console.log(userInput);
-// }
 
 //clear display button
 document.querySelector("#clear").addEventListener("mousedown", () => {
