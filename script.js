@@ -25,7 +25,8 @@ for (let element of document.querySelectorAll(".operator")) {
         input.value = "";
     });
 }
-//need to figure out how to use this inside the operate function
+
+//add button.id as string to use inside operate()
 const buttons = document.querySelectorAll(".operator");
 let userInput = "";
 buttons.forEach((button) => {
@@ -47,8 +48,6 @@ function operate() {
 }
 
 //display results after pressing equals
-//still need to make it work for every operator it works, but need to be able to call
-//each function when the button is pressed
 for (let element of document.querySelectorAll("#equals")) {
     element.addEventListener("mousedown", () => {
         operate();
