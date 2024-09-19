@@ -43,7 +43,7 @@ function operate() {
         input.value = subtract();
     } else if (userInput === "multiply") {
         input.value = multiply();
-    } else if ((input.value = Infinity)) {
+    } else if (input.value === Infinity) {
         input.value = "Error! 0 division";
     } else {
         input.value = divide();
