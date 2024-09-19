@@ -25,6 +25,19 @@ for (let element of document.querySelectorAll(".operator")) {
         input.value = "";
     });
 }
+//need to figure out how to use this inside the operate function
+const buttons = document.querySelectorAll(".operator");
+let userInput = "";
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        userInput += button.id;
+    });
+});
+
+function operate() {
+    result = add();
+    input.value = result;
+}
 
 //display results after pressing equals
 //still need to make it work for every operator it works, but need to be able to call
@@ -32,6 +45,7 @@ for (let element of document.querySelectorAll(".operator")) {
 for (let element of document.querySelectorAll("#equals")) {
     element.addEventListener("mousedown", () => {
         operate();
+        console.log(userInput);
     });
 }
 //call function with numOne,NumTwo as args
@@ -39,24 +53,6 @@ for (let element of document.querySelectorAll("#equals")) {
 // if ((userInput = "plus")) {
 //     console.log(userInput);
 // }
-
-const buttons = document.querySelectorAll("#plus", "#minus", "#divide", "#multiply");
-let userInput = "";
-function operate() {
-    buttons.forEach((button) => {
-        button.addEventListener("click", () => {
-            //if userInput === plus, or whatever, result = add()
-            userInput = button.id;
-            console.log(userInput);
-        });
-    });
-    //if querySelectorAll === plus, do the following?
-    //remember to return value
-    //if button.id =
-
-    result = add();
-    input.value = result;
-}
 
 //clear display button
 document.querySelector("#clear").addEventListener("mousedown", () => {
