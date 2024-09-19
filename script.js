@@ -1,4 +1,3 @@
-let userInput = "";
 let firstNumber = "";
 let secondNumber = "";
 let result = [];
@@ -22,7 +21,6 @@ for (const element of document.querySelectorAll(".number")) {
 
 for (let element of document.querySelectorAll(".operator")) {
     element.addEventListener("mousedown", () => {
-        //use Number to convert string to Number
         array.push(Number(input.value));
         input.value = "";
     });
@@ -31,16 +29,33 @@ for (let element of document.querySelectorAll(".operator")) {
 //display results after pressing equals
 //still need to make it work for every operator it works, but need to be able to call
 //each function when the button is pressed
-for (let element of document.querySelectorAll("#equals", "#plus")) {
+for (let element of document.querySelectorAll("#equals")) {
     element.addEventListener("mousedown", () => {
-        result = add();
-        input.value = result;
+        operate();
     });
 }
 //call function with numOne,NumTwo as args
 //try calling function with values from array as args to see if it works
-function operate(numOne, numTwo) {
-    //take two numbers and call one of the functions on them
+// if ((userInput = "plus")) {
+//     console.log(userInput);
+// }
+
+const buttons = document.querySelectorAll("#plus", "#minus", "#divide", "#multiply");
+let userInput = "";
+function operate() {
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            //if userInput === plus, or whatever, result = add()
+            userInput = button.id;
+            console.log(userInput);
+        });
+    });
+    //if querySelectorAll === plus, do the following?
+    //remember to return value
+    //if button.id =
+
+    result = add();
+    input.value = result;
 }
 
 //clear display button
