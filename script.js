@@ -30,13 +30,20 @@ const buttons = document.querySelectorAll(".operator");
 let userInput = "";
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
-        userInput += button.id;
+        userInput = button.id;
     });
 });
 
 function operate() {
-    result = add();
-    input.value = result;
+    if (userInput === "plus") {
+        input.value = add();
+    } else if (userInput === "minus") {
+        input.value = subtract();
+    } else if (userInput === "multiply") {
+        input.value = multiply();
+    } else {
+        input.value = divide();
+    }
 }
 
 //display results after pressing equals
