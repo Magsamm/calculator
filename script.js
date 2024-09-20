@@ -81,5 +81,11 @@ function multiply() {
 
 //needs to throw error on 0 division
 function divide() {
-    return array[0] / array[1];
+    let divisionVariable = 0;
+    divisionVariable = array[0] / array[1];
+    if (isNaN(divisionVariable)) {
+        return "Error!";
+    } else {
+        return divisionVariable;
+    }
 }
