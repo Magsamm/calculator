@@ -51,7 +51,7 @@ function operate() {
     }
 }
 
-//display results after pressing equals
+//display results after pressing equals, as long as array.length > 0
 for (let element of document.querySelectorAll("#equals")) {
     element.addEventListener("mousedown", () => {
         if (array.length > 0) {
@@ -79,12 +79,11 @@ function multiply() {
     return array[0] * array[1];
 }
 
-//needs to throw error on 0 division
 function divide() {
     let divisionVariable = 0;
     divisionVariable = array[0] / array[1];
     if (isNaN(divisionVariable)) {
-        return "Error!";
+        return "Cannot divide by 0.";
     } else {
         return divisionVariable;
     }
