@@ -14,37 +14,38 @@ for (const element of document.querySelectorAll(".number")) {
     });
 }
 
-//trying to make sure the value of the operator is not added to the array
-//when you make the operators call the functions,
-//PROBLEMS:
-//need to make it ignore the operators as a "value"
-
+//when operator button is pressed, add number to array
+//need to make sure i cant press an operator button before entering a number
 for (let element of document.querySelectorAll(".operator")) {
     element.addEventListener("mousedown", () => {
-        array.push(Number(input.value));
-        input.value = "";
+        //when operator button is pressed, call function and add numbers to array instead?
+        if (input.value == 0 || input.value === "NaN") {
+            input.value = "";
+        } else {
+            array.push(Number(input.value));
+            console.log(array);
+            input.value = "";
+        }
     });
 }
 
-//add button.id as string to use inside operate()
+//add button.id to buttonId to use inside operate()
 const buttons = document.querySelectorAll(".operator");
-let userInput = "";
+let buttonId = "";
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
-        userInput = button.id;
+        buttonId = button.id;
     });
 });
 
 //maybe refactor to use switch block?
 function operate() {
-    if (userInput === "plus") {
+    if (buttonId === "plus") {
         input.value = add();
-    } else if (userInput === "minus") {
+    } else if (buttonId === "minus") {
         input.value = subtract();
-    } else if (userInput === "multiply") {
+    } else if (buttonId === "multiply") {
         input.value = multiply();
-    } else if (input.value === Infinity) {
-        input.value = "Error! 0 division";
     } else {
         input.value = divide();
     }
@@ -53,7 +54,9 @@ function operate() {
 //display results after pressing equals
 for (let element of document.querySelectorAll("#equals")) {
     element.addEventListener("mousedown", () => {
-        operate();
+        if (array.length > 0) {
+            operate();
+        }
     });
 }
 
