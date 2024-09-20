@@ -17,7 +17,8 @@ for (let element of document.querySelectorAll(".operator")) {
         if (input.value == 0 || isNaN(input.value)) {
             input.value = "";
         } else {
-            array.push(Number(input.value));
+            result = input.value;
+            array.push(Number(result));
             input.value = "";
         }
     });
@@ -54,12 +55,12 @@ for (let element of document.querySelectorAll("#equals")) {
     element.addEventListener("mousedown", () => {
         if (array.length >= 2) {
             operate(array[0], array[1]);
+
             //store result of calculation in global var
             //add to start of array?
             //empty array first?
             //push the first 2 numbers out of the array?
             //array.push(Number(array.unshift(Number(result))));
-            console.log(array);
         }
         //else if (array.length > 2) {}
     });
@@ -83,13 +84,13 @@ function subtract() {
 function multiply() {
     return array[0] * array[1];
 }
-
+//handles 0 division, and rounds number to max 2 decimal places.
 function divide() {
     let divisionVariable = 0;
     divisionVariable = array[0] / array[1];
     if (isNaN(divisionVariable)) {
         return "Cannot divide by 0.";
     } else {
-        return divisionVariable;
+        return divisionVariable.toFixed(2);
     }
 }
