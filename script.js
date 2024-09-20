@@ -26,6 +26,10 @@ for (let element of document.querySelectorAll(".operator")) {
 
 //add button.id to buttonId to use inside operate()
 //use click instead of mousedown here bc it doesn't add the value properly otherwise.
+
+//operate on pairs. when one calculation is done, shuffle the result to the start of the array
+// use that number as the [0], and the next number for [0]
+//splice?
 const buttons = document.querySelectorAll(".operator");
 let buttonId = "";
 buttons.forEach((button) => {
@@ -47,22 +51,11 @@ function operate(numOne, numTwo) {
     }
 }
 
-//if operator is pressed a second time (BEFORE equals), run operate() on the first pair, move that value to the start of the array, then run operate on the next number, with the result from the previous operation as the first array[0] in the calculations
-//in a loop
-//if next operator is pressed, run evaluate on the first pair,
-//display results after pressing equals, as long as array.length > 0
 for (let element of document.querySelectorAll("#equals")) {
     element.addEventListener("mousedown", () => {
-        if (array.length >= 2) {
+        if (array.length > 0) {
             operate(array[0], array[1]);
-
-            //store result of calculation in global var
-            //add to start of array?
-            //empty array first?
-            //push the first 2 numbers out of the array?
-            //array.push(Number(array.unshift(Number(result))));
         }
-        //else if (array.length > 2) {}
     });
 }
 
@@ -72,7 +65,7 @@ document.querySelector("#clear").addEventListener("mousedown", () => {
     input.value = "";
     array.length = 0;
 });
-
+//math functions to perform calculations
 function add() {
     return array[0] + array[1];
 }
@@ -86,8 +79,7 @@ function multiply() {
 }
 //handles 0 division, and rounds number to max 2 decimal places.
 function divide() {
-    let divisionVariable = 0;
-    divisionVariable = array[0] / array[1];
+    let divisionVariable = array[0] / array[1];
     if (isNaN(divisionVariable)) {
         return "Cannot divide by 0.";
     } else {
