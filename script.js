@@ -1,6 +1,5 @@
 let firstNumber = "";
 let secondNumber = "";
-let result = [];
 const array = [];
 
 const container = document.querySelector(".container");
@@ -16,7 +15,7 @@ for (const element of document.querySelectorAll(".number")) {
 //resets input.value for next input.
 for (let element of document.querySelectorAll(".operator")) {
     element.addEventListener("mousedown", () => {
-        if (input.value == 0 || input.value === "NaN") {
+        if (input.value == 0 || isNaN(input.value)) {
             input.value = "";
         } else {
             array.push(Number(input.value));
@@ -26,6 +25,7 @@ for (let element of document.querySelectorAll(".operator")) {
 }
 
 //add button.id to buttonId to use inside operate()
+//use click instead of mousedown here bc it doesn't add the value properly otherwise.
 const buttons = document.querySelectorAll(".operator");
 let buttonId = "";
 buttons.forEach((button) => {
