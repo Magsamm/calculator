@@ -3,8 +3,6 @@ let secondNumber = "";
 let result = [];
 const array = [];
 
-//empty arr to store the two numbers
-//try adding numbers to the arr instead of two variables
 const container = document.querySelector(".container");
 //populate display
 const input = document.querySelector("input");
@@ -14,16 +12,14 @@ for (const element of document.querySelectorAll(".number")) {
     });
 }
 
-//when operator button is pressed, add number to array
-//need to make sure i cant press an operator button before entering a number
+//adds number from input.value to array as a Number for evaluation when pressing an operator button.
+//resets input.value for next input.
 for (let element of document.querySelectorAll(".operator")) {
     element.addEventListener("mousedown", () => {
-        //when operator button is pressed, call function and add numbers to array instead?
         if (input.value == 0 || input.value === "NaN") {
             input.value = "";
         } else {
             array.push(Number(input.value));
-            console.log(array);
             input.value = "";
         }
     });
