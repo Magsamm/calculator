@@ -14,13 +14,14 @@ for (const element of document.querySelectorAll(".number")) {
 //resets input.value for next input.
 for (let element of document.querySelectorAll(".operator")) {
     element.addEventListener("mousedown", () => {
-        if (isNaN(input.value) === true) {
+        if (isNaN(input.value) === true || input.value === 0 || input.value === "") {
             input.value = "";
         } else {
             result = input.value;
             array.push(Number(result));
-            //remove console.log after testing
             console.log(array);
+
+            //remove console.log after testing
             input.value = "";
         }
     });
@@ -80,7 +81,7 @@ function multiply() {
 //handles 0 division, and rounds number to max 2 decimal places.
 function divide() {
     let divisionVariable = array[0] / array[1];
-    if ((divisionVariable === Infinity) === true || isNaN(divisionVariable) === true) {
+    if (divisionVariable === Infinity || isNaN(divisionVariable) === true) {
         return (input.value = "cannot divide by 0");
     }
     return divisionVariable.toFixed(2);
