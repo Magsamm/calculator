@@ -32,7 +32,6 @@ let buttonId = "";
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
         buttonId = button.id;
-        console.log(array);
     });
 });
 //if clicks > 1, prioritize the next buttonId?
@@ -48,11 +47,17 @@ function operate(numOne, numTwo) {
         input.value = divide(numOne, numTwo);
     }
 }
+
+//focus on making sure you can only do one "operation" at a time.
+// so for example, you can only press
+
 //if arr != result, remove elements
 for (let element of document.querySelectorAll("#equals")) {
     element.addEventListener("mousedown", () => {
         if (array.length > 0) {
+            let final = 0;
             operate(array[0], array[1]);
+            console.log((final += add()));
         }
     });
 }

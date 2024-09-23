@@ -2,14 +2,6 @@ problem:
 Your calculator should not evaluate more than a single pair of numbers at a time. Example: you press a number button (12), followed by an operator button (+), a second number button (7), and finally a second operator button (-). Your calculator should then do the following: first, evaluate the first pair of numbers (12 + 7), second, display the result of that calculation (19), and finally, use that result (19) as the first number in your new calculation, along with the next operator (-). An example of the behavior we’re looking for can be seen in this student’s calculator live preview.
 
 
-what i think i need to do:
-* if user doesnt press equals, but instead presses another operator, do the following:
-perform the calculation of the pair of numbers entered
-store the result in a variable, then use that result as the first number of the next pair.
-then use that operator as on the next number
-so (12+7) - 5, should becomes: result(19) - 5. when the user THEN presses equals, it should display: 14.
-if the user doesnt press equals, but instead yet another operator, do the same operations again. use the result of the previous calculation, add the operator, then wait for new number
-
-
-
-start with, removing the numbers, except the result, which ill add to a variable
+if user presses an operator a SECOND time, evaluate the pair in the array
+//add that result to [0] in the array, wait for next input, add that to [1]
+//return results?
