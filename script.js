@@ -14,11 +14,12 @@ for (const element of document.querySelectorAll(".number")) {
 //resets input.value for next input.
 for (let element of document.querySelectorAll(".operator")) {
     element.addEventListener("mousedown", () => {
-        if (input.value == 0 || isNaN(input.value)) {
+        if (input.value === 0 || isNaN(input.value)) {
             input.value = "";
         } else {
             result = input.value;
             array.push(Number(result));
+            //remove console.log after testing
             input.value = "";
         }
     });
@@ -27,9 +28,7 @@ for (let element of document.querySelectorAll(".operator")) {
 //add button.id to buttonId to use inside operate()
 //use click instead of mousedown here bc it doesn't add the value properly otherwise.
 
-//operate on pairs. when one calculation is done, shuffle the result to the start of the array
-// use that number as the [0], and the next number for [0]
-//splice?
+//until the user presses =, carry over the result of [0] + [1], AND the new operator - (12+7) - 1 for example(19-1)
 const buttons = document.querySelectorAll(".operator");
 let buttonId = "";
 buttons.forEach((button) => {
@@ -46,7 +45,7 @@ function operate(numOne, numTwo) {
         input.value = subtract(numOne, numTwo);
     } else if (buttonId === "multiply") {
         input.value = multiply(numOne, numTwo);
-    } else {
+    } else if (buttonId === "divide") {
         input.value = divide(numOne, numTwo);
     }
 }
@@ -80,9 +79,7 @@ function multiply() {
 //handles 0 division, and rounds number to max 2 decimal places.
 function divide() {
     let divisionVariable = array[0] / array[1];
-    if (isNaN(divisionVariable)) {
-        return "Cannot divide by 0.";
-    } else {
+    if (divisionVariable) {
         return divisionVariable.toFixed(2);
     }
 }
