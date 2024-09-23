@@ -14,12 +14,13 @@ for (const element of document.querySelectorAll(".number")) {
 //resets input.value for next input.
 for (let element of document.querySelectorAll(".operator")) {
     element.addEventListener("mousedown", () => {
-        if (input.value === 0 || isNaN(input.value)) {
+        if (input.value == 0 || isNaN(input.value)) {
             input.value = "";
         } else {
             result = input.value;
             array.push(Number(result));
             //remove console.log after testing
+            console.log(array);
             input.value = "";
         }
     });
@@ -37,7 +38,7 @@ buttons.forEach((button) => {
     });
 });
 //if clicks > 1, prioritize the next buttonId?
-//maybe refactor to use switch block?
+
 function operate(numOne, numTwo) {
     if (buttonId === "plus") {
         input.value = add(numOne, numTwo);
