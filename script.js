@@ -17,11 +17,7 @@ for (let element of document.querySelectorAll(".operator")) {
         if (isNaN(input.value) === true || input.value === 0 || input.value === "") {
             input.value = "";
         } else {
-            result = input.value;
-            array.push(Number(result));
-            console.log(array);
-
-            //remove console.log after testing
+            array.push(Number(input.value));
             input.value = "";
         }
     });
@@ -36,6 +32,7 @@ let buttonId = "";
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
         buttonId = button.id;
+        console.log(array);
     });
 });
 //if clicks > 1, prioritize the next buttonId?
@@ -51,7 +48,7 @@ function operate(numOne, numTwo) {
         input.value = divide(numOne, numTwo);
     }
 }
-
+//if arr != result, remove elements
 for (let element of document.querySelectorAll("#equals")) {
     element.addEventListener("mousedown", () => {
         if (array.length > 0) {
@@ -68,21 +65,24 @@ document.querySelector("#clear").addEventListener("mousedown", () => {
 });
 //math functions to perform calculations
 function add() {
-    return array[0] + array[1];
+    let result = array[0] + array[1];
+    return result;
 }
 
 function subtract() {
-    return array[0] - array[1];
+    let result = array[0] - array[1];
+    return result;
 }
 
 function multiply() {
-    return array[0] * array[1];
+    let result = array[0] * array[1];
+    return result;
 }
 //handles 0 division, and rounds number to max 2 decimal places.
 function divide() {
-    let divisionVariable = array[0] / array[1];
-    if (divisionVariable === Infinity || isNaN(divisionVariable) === true) {
+    let result = array[0] / array[1];
+    if (result === Infinity || isNaN(result) === true) {
         return (input.value = "cannot divide by 0");
     }
-    return divisionVariable.toFixed(2);
+    return result.toFixed(2);
 }
