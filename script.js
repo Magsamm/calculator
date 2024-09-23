@@ -79,7 +79,8 @@ function multiply() {
 //handles 0 division, and rounds number to max 2 decimal places.
 function divide() {
     let divisionVariable = array[0] / array[1];
-    if (divisionVariable) {
-        return divisionVariable.toFixed(2);
+    if (isNaN(divisionVariable) || isFinite(input.value)) {
+        return "Cannot divide by 0.";
     }
+    return divisionVariable.toFixed(2);
 }
