@@ -24,3 +24,14 @@ button {
     justify-content: center;
     height: 50px;
 }
+
+button:disabled,
+button[disabled] {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+}
+
+div {
+    padding: 5px 10px;
+}

@@ -1,6 +1,5 @@
 let array = [];
 let result = 0;
-let saveOperator = "";
 let finalResult = 0;
 const container = document.querySelector(".container");
 //populate display
@@ -11,8 +10,23 @@ for (const element of document.querySelectorAll(".number")) {
     });
 }
 
-//adds number from input.value to array as a Number for evaluation when pressing an operator button.
-//resets input.value for next input.
+//need to disable operators until a number button has been clicked again after the first one
+//check if an operator has been clicked
+//get button.id
+const buttons = document.querySelectorAll(".operator");
+let buttonId = "";
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        buttonId = button.id;
+        if (!(array.length < 1 || button.id === "clear" || button.id === "equals")) {
+        }
+    });
+});
+
+//console.log();
+
+//maybe just push finalResult to the array regardless? and wipe it?
+
 for (let element of document.querySelectorAll(".operator")) {
     element.addEventListener("mousedown", () => {
         if (!(isNaN(input.value) === true || input.value === 0 || input.value === "")) {
@@ -21,17 +35,19 @@ for (let element of document.querySelectorAll(".operator")) {
         }
     });
 }
-
 for (let element of document.querySelectorAll("#equals")) {
     element.addEventListener("mousedown", () => {
         if (array.length > 1) {
             operate();
-            console.log(array);
+            array = [];
+            array.splice(2, 2, finalResult);
+            console.log(finalResult);
         }
     });
 }
 
 //clear display button
+
 document.querySelector("#clear").addEventListener("click", () => {
     //reset array and empty input.value, saveOperator.
     input.value = "";
@@ -51,46 +67,25 @@ function operate(numOne, numTwo) {
     }
 }
 
-//get button.id
-//add textContent to saveOperands to keep track of operators
-//don't accept more inputs if saveOperator >= 2
-
-// For example, when both operands(numbers) are full, make it evaluate on next operator input, and then just bring the answer and operator over to next set
-
-const buttons = document.querySelectorAll(".operator");
-let buttonId = "";
-buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-        buttonId = button.id;
-        if (
-            !(
-                saveOperator.length >= 1 ||
-                array.length < 1 ||
-                button.id === "clear" ||
-                button.id === "equals"
-            )
-        ) {
-            //save operand and split for indexing
-            saveOperator += button.textContent.split();
-        }
-    });
-});
-
-//math functions to perform calculations
+//perform calculations with chosen operator.
 function add() {
     let result = array[0] + array[1];
     array.push(result);
+    finalResult += result;
     return result;
 }
 
 function subtract() {
     let result = array[0] - array[1];
+    finalResult += result;
+
     array.push(result);
     return result;
 }
 
 function multiply() {
     let result = array[0] * array[1];
+    finalResult += result;
     array.push(result);
     return result;
 }
@@ -101,5 +96,6 @@ function divide() {
         return (input.value = "Can't divide by 0!");
     }
     array.push(result);
+    finalResult += result;
     return Number(result).toFixed(2);
 }
