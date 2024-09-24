@@ -1,6 +1,7 @@
 const array = [];
 let result = 0;
-let clicks = 0;
+let operandCounter = 2;
+let saveOperands = "";
 const container = document.querySelector(".container");
 //populate display
 const input = document.querySelector("input");
@@ -14,24 +15,33 @@ for (const element of document.querySelectorAll(".number")) {
 //resets input.value for next input.
 for (let element of document.querySelectorAll(".operator")) {
     element.addEventListener("mousedown", () => {
-        if (isNaN(input.value) === true || input.value === 0 || input.value === "") {
+        if (
+            isNaN(input.value) === true ||
+            input.value === 0 ||
+            input.value === "" ||
+            saveOperands.length > 2
+        ) {
             input.value = "";
         } else {
             array.push(Number(input.value));
+
             input.value = "";
         }
     });
 }
-
-//add button.id to buttonId to use inside operate()
-//use click instead of mousedown here bc it doesn't add the value properly otherwise.
-
-//until the user presses =, carry over the result of [0] + [1], AND the new operator - (12+7) - 1 for example(19-1)
+//get button.id
+//increase or reset operandCounter
 const buttons = document.querySelectorAll(".operator");
 let buttonId = "";
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
         buttonId = button.id;
+        if (button.id === "clear" || saveOperands.length >= 2) {
+            input.value = "";
+        } else {
+            saveOperands += button.textContent;
+            console.log(saveOperands);
+        }
     });
 });
 //if clicks > 1, prioritize the next buttonId?
@@ -50,8 +60,12 @@ function operate(numOne, numTwo) {
 
 //focus on making sure you can only do one "operation" at a time.
 // so for example, you can only press
+//of array === 2, operate with the current operator
+//if user enters another operator
+//use result in the next calculation, with the next operator
+//dont allow a new operator until the current calculation is done?
+// For example, when both operands are full, make it evaluate on next operator input, and then just bring the answer and operator over to next set
 
-//if arr != result, remove elements
 for (let element of document.querySelectorAll("#equals")) {
     element.addEventListener("mousedown", () => {
         if (array.length > 0) {
