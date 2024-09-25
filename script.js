@@ -35,7 +35,7 @@ for (let element of document.querySelectorAll(".operator")) {
         }
     });
 }
-for (let element of document.querySelectorAll("#plus")) {
+for (let element of document.querySelectorAll("#equals")) {
     element.addEventListener("mousedown", () => {
         if (array.length > 1) {
             operate();
