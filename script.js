@@ -1,6 +1,7 @@
 let array = [];
 let result = 0;
 let finalResult = 0;
+let operatorClick = false;
 const container = document.querySelector(".container");
 //populate display
 const input = document.querySelector("input");
@@ -14,6 +15,7 @@ for (const element of document.querySelectorAll(".number")) {
 //check if an operator has been clicked
 //get button.id
 const buttons = document.querySelectorAll(".operator");
+const numbers = document.querySelectorAll(".number");
 let buttonId = "";
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -22,8 +24,6 @@ buttons.forEach((button) => {
         }
     });
 });
-
-//console.log();
 
 //maybe just push finalResult to the array regardless? and wipe it?
 
@@ -35,13 +35,13 @@ for (let element of document.querySelectorAll(".operator")) {
         }
     });
 }
-for (let element of document.querySelectorAll("#equals")) {
+for (let element of document.querySelectorAll("#plus")) {
     element.addEventListener("mousedown", () => {
         if (array.length > 1) {
             operate();
             array = [];
             array.splice(2, 2, finalResult);
-            console.log(finalResult);
+            console.log(array);
         }
     });
 }
@@ -50,6 +50,8 @@ for (let element of document.querySelectorAll("#equals")) {
 
 document.querySelector("#clear").addEventListener("click", () => {
     //reset array and empty input.value, saveOperator.
+    // we use the .forEach method to iterate through each button
+
     input.value = "";
     saveOperator = "";
     array.length = 0;
