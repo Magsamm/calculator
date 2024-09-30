@@ -20,17 +20,28 @@ buttons.forEach((button) => {
 
 for (let element of document.querySelectorAll(".operator")) {
     element.addEventListener("mousedown", () => {
-        array.push(Number(input.value));
-        input.value = "";
+        if (isNaN(input.value) === true || input.value === 0 || input.value === "") {
+            input.value = "";
+        } else {
+            array.push(Number(input.value));
+            input.value = "";
+        }
     });
 }
 
+//add some logic for line 22, to emulate equals in a way if the user presses another operator
 //if user presses equals, present latest result from input.value
+//empty array. if user continues to enter numbers, use the number stored
 const btn = document.querySelector("#equals");
 btn.addEventListener("mousedown", function () {
-    array.push(Number(input.value));
-    input.value = operate();
-    array = [];
+    if (isNaN(input.value) || input.value == 0) {
+        return NaN;
+    } else {
+        array.push(Number(input.value));
+        input.value = operate();
+        console.log(array);
+        array = [];
+    }
 });
 
 //clear display button
