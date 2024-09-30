@@ -50,7 +50,7 @@ button {
     display: flex;
     font-size: 2rem;
     height: 50px;
-    width: 58px;
+    width: 60px;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
@@ -78,5 +78,4 @@ button {
 div {
     align-items: center;
     justify-content: center;
-    gap: 5px;
 }
