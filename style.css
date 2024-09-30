@@ -20,6 +20,7 @@ body {
     border: 1px solid white;
     max-inline-size: 20rem;
     background-color: gray;
+    gap: 5px;
 }
 
 div .numbers {
@@ -37,7 +38,6 @@ button {
     display: flex;
     border-radius: 10px;
     background: #73ad21;
-    padding: 20px;
 }
 
 .number {
@@ -71,4 +71,5 @@ button {
 div {
     align-items: center;
     justify-content: center;
+    gap: 5px;
 }
