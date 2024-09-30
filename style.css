@@ -18,8 +18,8 @@ body {
     margin: auto;
     box-sizing: border-box;
     border: 1px solid white;
-    max-inline-size: 25rem;
-    background-color: brown;
+    max-inline-size: 20rem;
+    background-color: gray;
 }
 
 div .numbers {
