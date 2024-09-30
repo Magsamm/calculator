@@ -21,10 +21,7 @@ body {
     max-inline-size: 20rem;
     background-color: gray;
     gap: 5px;
-}
-
-.display {
-    display: flex;
+    padding-bottom: 15px;
 }
 
 input {
