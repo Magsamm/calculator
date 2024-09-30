@@ -4,6 +4,7 @@ let buttonId = "";
 const container = document.querySelector(".container");
 //populate display
 const input = document.querySelector("input");
+document.querySelector("input").style.height = "30px";
 for (const element of document.querySelectorAll(".number")) {
     element.addEventListener("mousedown", () => {
         input.value += element.textContent;
