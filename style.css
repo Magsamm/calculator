@@ -35,6 +35,9 @@ div .operators {
 
 button {
     display: flex;
+    border-radius: 10px;
+    background: #73ad21;
+    padding: 20px;
 }
 
 .number {
