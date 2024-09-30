@@ -27,12 +27,12 @@ body {
 input {
     display: flex;
     margin-top: 20px;
+    border-radius: 10px;
 }
 
 div .numbers {
     display: flex;
     flex-wrap: wrap;
-    flex: 1;
 }
 
 div .operators {
