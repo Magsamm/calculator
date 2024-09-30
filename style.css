@@ -13,7 +13,6 @@ body {
 .container {
     display: flex;
     min-height: 400px;
-    width: max-content;
     flex-wrap: wrap;
     align-self: center;
     margin: auto;
@@ -22,9 +21,7 @@ body {
     max-inline-size: 25rem;
     background-color: brown;
 }
-#input {
-    display: flex;
-}
+
 div .numbers {
     display: flex;
     flex-wrap: wrap;
@@ -69,7 +66,6 @@ button {
 }
 
 div {
-    padding: 5px 10px;
     align-items: center;
     justify-content: center;
 }
