@@ -40,7 +40,6 @@ btn.addEventListener("mousedown", function () {
     } else {
         array.push(Number(input.value));
         input.value = operate();
-        console.log(array);
         array = [];
     }
 });
