@@ -35,8 +35,8 @@ for (let element of document.querySelectorAll(".operator")) {
 //empty array. if user continues to enter numbers, use the number stored
 const btn = document.querySelector("#equals");
 btn.addEventListener("mousedown", function () {
-    if (isNaN(input.value) || input.value == 0) {
-        return NaN;
+    if (isNaN(input.value) || input.value === 0) {
+        input.value = "";
     } else {
         array.push(Number(input.value));
         input.value = operate();
@@ -69,21 +69,21 @@ function add() {
     if (!isNaN(array[0]) && !isNaN(array[1])) {
         return array[0] + array[1];
     }
-    return (input.value = "Non integer value!");
+    return (input.value = "");
 }
 
 function subtract() {
     if (!isNaN(array[0]) && !isNaN(array[1])) {
         return array[0] - array[1];
     }
-    return (input.value = "Non integer value!");
+    return (input.value = "");
 }
 
 function multiply() {
     if (!isNaN(array[0]) && !isNaN(array[1])) {
         return array[0] * array[1];
     }
-    return (input.value = "Non integer value!");
+    return (input.value = "");
 }
 //handles 0 division, and rounds number to max 2 decimal places.
 function divide() {
