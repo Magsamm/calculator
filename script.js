@@ -30,8 +30,9 @@ for (let element of document.querySelectorAll(".operator")) {
     });
 }
 
-//add some logic for line 22, to emulate equals in a way if the user presses another operator
-//if user presses equals, present latest result from input.value
+//if user presses equals, check if the user entered valid number,
+//push number to array, and call operate() on the number, set input.value to the return value from the chosen operator
+// display result from calculations
 //empty array. if user continues to enter numbers, use the number stored
 const btn = document.querySelector("#equals");
 btn.addEventListener("mousedown", function () {
